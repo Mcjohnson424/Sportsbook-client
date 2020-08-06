@@ -5,12 +5,12 @@ import { withFormik, Field } from "formik";
 import * as yup from "yup";
 import get from "lodash/get";
 
-import StateInput from "../../../Form/StateInput"
-import SportBookInput from "../../../Form/SportBookInput"
+import StateInput from "../../../Form/StateInput";
+import SportBookInput from "../../../Form/SportBookInput";
 
 const schema = yup.object({
-  name: yup.string().required(),
-
+  username: yup.string().required(),
+  hashed_pw: yup.string().required(),
 });
 
 const SportsBooksAccountForm = ({
@@ -21,7 +21,7 @@ const SportsBooksAccountForm = ({
   touched,
   isValid,
   errors,
-  setFieldValue
+  setFieldValue,
 }) => {
   return (
     <div>
@@ -40,43 +40,32 @@ const SportsBooksAccountForm = ({
             {get(errors, "username")}
           </Form.Control.Feedback>
         </Form.Group>
-        
-        <Form.Group controlId="formEmail">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter your email"
-            value={get(values, "email") || ""}
-            name="email"
-            onChange={handleChange}
-            isInvalid={!!get(errors, "email")}
-          />
-          <Form.Control.Feedback type="invalid">
-            {get(errors, "email")}
-          </Form.Control.Feedback>
-        </Form.Group>
-
         <Form.Group controlId="formHashedPw">
           <Form.Label>Password</Form.Label>
           <Form.Control
-            type="text"
+            type="password"
             placeholder="Enter your password"
-            value={get(values, "password") || ""}
-            name="password"
+            value={get(values, "hashed_pw") || ""}
+            name="hashed_pw"
             onChange={handleChange}
-            isInvalid={!!get(errors, "password")}
+            isInvalid={!!get(errors, "hashed_pw")}
           />
           <Form.Control.Feedback type="invalid">
-            {get(errors, "password")}
+            {get(errors, "hashed_pw")}
           </Form.Control.Feedback>
         </Form.Group>
 
-        <StateInput  value={get(values, "state") || ""}
-            onChange={handleChange}
-            error={get(errors, "state")}/>
-        <SportBookInput  value={get(values, "sportsbook") || ""}
-            onChange={handleChange}
-            error={get(errors, "sportsbook")}/>
+        <StateInput
+          value={get(values, "state") || ""}
+          onChange={handleChange}
+          error={get(errors, "state")}
+        />
+        <SportBookInput
+          state={get(values, "state") || ""}
+          value={get(values, "sportsbook_id") || ""}
+          onChange={handleChange}
+          error={get(errors, "sportsbook_id")}
+        />
         <Button
           variant="primary"
           type="submit"
@@ -90,11 +79,11 @@ const SportsBooksAccountForm = ({
 };
 
 export default withFormik({
-  mapPropsToValues: values => {
+  mapPropsToValues: (values) => {
     return values.customer || {};
   },
   handleSubmit: (values, { props }) => {
     props.onSubmit(values);
   },
-  validationSchema: schema
+  validationSchema: schema,
 })(SportsBooksAccountForm);

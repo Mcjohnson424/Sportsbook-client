@@ -5,9 +5,13 @@ import api from "../../../common/api";
 import Error from "../../Error";
 import useFetchApi from "../../../hooks/useFetchApi";
 
-const SportBookInput = ({ onChange, value = "", error: passedError }) => {
-  const { data, loading, error } = useFetchApi(api.states.get);
-
+const SportBookInput = ({
+  onChange,
+  value = "",
+  error: passedError,
+  state,
+}) => {
+  const { data, loading, error } = useFetchApi(api.sportsbooks.get);
   if (loading) return <Loading />;
   return (
     <Form.Group controlId="forPlanId">
@@ -21,11 +25,14 @@ const SportBookInput = ({ onChange, value = "", error: passedError }) => {
         isInvalid={!!passedError}
       >
         <option>Choose...</option>
-        {data.map((item) => (
-          <option key={item.id} value={item.id}>
-            {item.name}
-          </option>
-        ))}
+        {state &&
+          data
+            .filter((book) => book.state === state)
+            .map((item) => (
+              <option key={item.id} value={item.id}>
+                {item.name}
+              </option>
+            ))}
       </Form.Control>
       <Form.Control.Feedback type="invalid">
         {passedError}
