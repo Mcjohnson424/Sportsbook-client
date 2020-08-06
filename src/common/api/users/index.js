@@ -1,3 +1,4 @@
 import create from "./create";
+import getAccounts from './getAccounts'
 
-export default { create };
+export default { create,getAccounts };
