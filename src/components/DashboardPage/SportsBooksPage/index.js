@@ -7,6 +7,7 @@ import SportsBooksAccountListPage from "./SportsBooksAccountListPage";
 import SportsBooksAccountCreatePage from "./SportsBooksAccountCreatePage";
 import SportsBooksAccountShowPage from "./SportsBooksAccountShowPage";
 import SportsBooksAccountEditPage from "./SportsBooksAccountEditPage";
+import SportsBooksAccountGetDataPage from "./SportsBooksAccountGetDataPage";
 
 export default function SportsBooksPage() {
   return (
@@ -36,6 +37,10 @@ export default function SportsBooksPage() {
       <AuthorizedRoute
         path={ROUTES.DASHBOARD_SPORTSBOOKS_ACCOUNTS_EDIT.href}
         component={SportsBooksAccountEditPage}
+      />
+      <AuthorizedRoute
+        path={ROUTES.DASHBOARD_SPORTSBOOKS_ACCOUNTS_GETDATA.href}
+        component={SportsBooksAccountGetDataPage}
       />
       <Route component={NotFoundPage} />
     </Switch>

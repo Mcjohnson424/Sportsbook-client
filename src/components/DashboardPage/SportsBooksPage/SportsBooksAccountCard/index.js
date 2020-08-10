@@ -1,6 +1,7 @@
 import React from "react";
-import { Card, Row, Col } from "react-bootstrap";
-
+import { Link } from "react-router-dom";
+import { Card, Row, Col, Button } from "react-bootstrap";
+import * as ROUTES from "../../../../constants/routes";
 const SportsBooksAccountCard = ({ account }) => {
   return (
     <Card>
@@ -15,6 +16,13 @@ const SportsBooksAccountCard = ({ account }) => {
           </Card.Body>
         </Col>
       </Row>
+       <Row>
+        <Col>
+          <Link to={ROUTES.DASHBOARD_SPORTSBOOKS_ACCOUNTS_GETDATA.as({accountId:account.id})}>
+            <Button className="btn-default btn-focal;">Get data</Button>
+          </Link>
+        </Col>
+      </Row>{" "}
       <Card.Footer className="text-right"></Card.Footer>
     </Card>
   );

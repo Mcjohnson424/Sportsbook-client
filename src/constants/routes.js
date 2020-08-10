@@ -48,3 +48,7 @@ export const DASHBOARD_SPORTSBOOKS_ACCOUNTS_SHOW = {
   href: "/dashboard/sportsbooks/accounts/:accountId/show",
   as: (params) => `/dashboard/sportsbooks/accounts/${params.accountId}/show`,
 };
+export const DASHBOARD_SPORTSBOOKS_ACCOUNTS_GETDATA = {
+  href: "/dashboard/sportsbooks/accounts/:accountId/getdata",
+  as: (params) => `/dashboard/sportsbooks/accounts/${params.accountId}/getdata`,
+};
