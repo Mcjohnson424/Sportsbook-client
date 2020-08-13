@@ -18,7 +18,7 @@ export default function SportsBooksAccountEditPage() {
     const onSubmit = async (data) => {
         setLoading(true);
         try {
-          await api.accounts.updateById({accountId},data);
+          await api.accounts.updateById({accountId}, data);
         } catch (e) {
           setError(e);
         }
