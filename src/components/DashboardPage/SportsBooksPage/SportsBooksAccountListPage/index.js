@@ -11,7 +11,7 @@ import SportsBooksAccountCard from "../SportsBooksAccountCard";
 
 export default function SportsBooksAccountListPage() {
   const { userInfo } = useCheckAuth();
-  const { data, error, loading } = useFetchApi(
+  const { data, error, loading, getData } = useFetchApi(
     api.users.getAccounts,
     {
       userId: userInfo.id,
@@ -40,7 +40,7 @@ export default function SportsBooksAccountListPage() {
       <Row className="mt-2">
         <Col>
           {data.map((account) => (
-            <SportsBooksAccountCard account={account} />
+            <SportsBooksAccountCard reload={getData} account={account} />
           ))}
         </Col>
       </Row>

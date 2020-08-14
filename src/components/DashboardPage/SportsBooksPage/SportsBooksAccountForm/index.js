@@ -80,7 +80,7 @@ const SportsBooksAccountForm = ({
 
 export default withFormik({
   mapPropsToValues: (values) => {
-    return values.customer || {};
+    return values || {};
   },
   handleSubmit: (values, { props }) => {
     props.onSubmit(values);

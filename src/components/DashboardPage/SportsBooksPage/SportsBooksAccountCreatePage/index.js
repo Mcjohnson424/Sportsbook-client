@@ -1,17 +1,20 @@
 import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import api from "../../../../common/api";
 import SportsBooksAccountForm from "../SportsBooksAccountForm";
+import * as ROUTES from "../../../../constants/routes";
 import Error from "../../../Error";
-import Loading from '../../../Loading'
+import Loading from "../../../Loading";
 
-export default function SportsBooksAccountCreatePage() {
+function SportsBooksAccountCreatePage({ history }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const onSubmit = async (data) => {
     setLoading(true);
     try {
       await api.accounts.create(data);
+      history.push(ROUTES.DASHBOARD_SPORTSBOOKS_ACCOUNTS.as());
     } catch (e) {
       setError(e);
     }
@@ -34,3 +37,5 @@ export default function SportsBooksAccountCreatePage() {
     </Container>
   );
 }
+
+export default withRouter(SportsBooksAccountCreatePage);
