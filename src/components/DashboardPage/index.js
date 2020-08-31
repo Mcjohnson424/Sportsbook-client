@@ -11,14 +11,17 @@ import * as ROUTES from "../../constants/routes";
 import Header from "../Header";
 import AccountPage from "./AccountPage";
 import SportsBooksPage from "./SportsBooksPage";
+import BetLogPage from "./BetLogPage";
+import ReportingPage from "./ReportingPage";
+import MainPage from "./MainPage";
 
 function DashboardRouter() {
   return (
     <Switch>
-      <AuthorizedRoute path={ROUTES.HOME.href} component={AccountPage} exact />{" "}
+      <AuthorizedRoute path={ROUTES.HOME.href} component={MainPage} exact />{" "}
       <AuthorizedRoute
         path={ROUTES.DASHBOARD.href}
-        component={AccountPage}
+        component={MainPage}
         exact
       />{" "}
       <AuthorizedRoute
@@ -28,6 +31,15 @@ function DashboardRouter() {
       <AuthorizedRoute
         path={ROUTES.DASHBOARD_SPORTSBOOKS.href}
         component={SportsBooksPage}
+      />
+      
+      <AuthorizedRoute
+        path={ROUTES.DASHBOARD_BETLOG.href}
+        component={BetLogPage}
+      />
+      <AuthorizedRoute
+        path={ROUTES.DASHBOARD_REPORTING.href}
+        component={ReportingPage}
       />
       <Route component={NotFoundPage} />
     </Switch>

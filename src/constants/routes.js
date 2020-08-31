@@ -27,6 +27,15 @@ export const DASHBOARD_SPORTSBOOKS = {
   as: () => `/dashboard/sportsbooks`,
 };
 
+export const DASHBOARD_BETLOG = {
+  href: "/dashboard/bet-log",
+  as: () => `/dashboard/bet-log`,
+};
+export const DASHBOARD_REPORTING = {
+  href: "/dashboard/reporting",
+  as: () => `/dashboard/reporting`,
+};
+
 export const DASHBOARD_SPORTSBOOKS_ACCOUNTS = {
   href: "/dashboard/sportsbooks/accounts",
   as: () => `/dashboard/sportsbooks/accounts`,

@@ -41,7 +41,20 @@ export default function AccountDropdown() {
             className="dropdown-item"
             to={ROUTES.DASHBOARD_SPORTSBOOKS.as()}
           >
-            Sports books
+            Sportsbooks
+          </Link>
+
+          <Link
+            className="dropdown-item"
+            to={ROUTES.DASHBOARD_BETLOG.as()}
+          >
+            Bet Log
+          </Link>
+          <Link
+            className="dropdown-item"
+            to={ROUTES.DASHBOARD_REPORTING.as()}
+          >
+            Reporting
           </Link>
           <div className="dropdown-divider"></div>
           <LogOutButton />
