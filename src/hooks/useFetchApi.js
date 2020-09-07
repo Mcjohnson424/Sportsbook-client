@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 
-export default function useFetchApi(apiFunction, params={},query) {
+export default function useFetchApi(
+  apiFunction,
+  params = {},
+  query,
+  triggers = []
+) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -21,7 +26,7 @@ export default function useFetchApi(apiFunction, params={},query) {
   };
   useEffect(() => {
     getData();
-  }, []);
+  }, triggers);
   return {
     getData,
     loading,
