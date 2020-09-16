@@ -5,6 +5,7 @@ import {
   Redirect,
   Switch,
 } from "react-router-dom";
+import { Doughnut } from 'react-chartjs-2';
 import AuthorizedRoute from "../AuthorizedRoute";
 import NotFoundPage from "../NotFound";
 import * as ROUTES from "../../constants/routes";
@@ -55,6 +56,7 @@ function DashboardPage() {
           <div className="page">
             <div className="page-inner">
               <DashboardRouter />
+              
             </div>
           </div>
         </div>
