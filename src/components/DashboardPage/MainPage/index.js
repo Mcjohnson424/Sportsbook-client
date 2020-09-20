@@ -8,6 +8,7 @@ import useFetchApi from "../../../hooks/useFetchApi";
 import api from "../../../common/api";
 import useBetFilteres from "../../../hooks/useBetFilters";
 import BetChart from "./BetChart";
+import BetOutput from "../../BetOutput";
 
 
 function MainPage() {
@@ -29,6 +30,11 @@ function MainPage() {
   <Row>
         <Col>
           <BetFilters />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+        <BetOutput/>
         </Col>
       </Row>
       <Row>

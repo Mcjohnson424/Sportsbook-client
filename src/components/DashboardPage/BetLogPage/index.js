@@ -29,6 +29,7 @@ function BetLogPage() {
           <BetFilters />
         </Col>
       </Row>
+      
       <Row>
         <Col>
           <BetTable bets={data} />
