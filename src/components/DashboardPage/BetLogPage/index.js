@@ -14,7 +14,11 @@ function BetLogPage() {
   const { data, loading, error } = useFetchApi(
     api.users.getBets,
     { userId: userInfo.id },
-    { ...filters },
+    {
+      ...filters,
+      startDate: filters.startDate.toISOString(),
+      endDate: filters.endDate.toISOString(),
+    },
     [filters]
   );
   return (
@@ -29,7 +33,7 @@ function BetLogPage() {
           <BetFilters />
         </Col>
       </Row>
-      
+
       <Row>
         <Col>
           <BetTable bets={data} />
