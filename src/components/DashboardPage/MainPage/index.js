@@ -9,6 +9,7 @@ import api from "../../../common/api";
 import useBetFilteres from "../../../hooks/useBetFilters";
 import BetChart from "./BetChart";
 import BetOutput from "../../BetOutput";
+import clean from "../../../common/functions/clean";
 
 function MainPage() {
   const { userInfo } = useCheckAuth();
@@ -22,8 +23,10 @@ function MainPage() {
       endDate: filters.endDate.toISOString(),
       eager: ["sport", "league"],
     },
+    clean(filters),
     [filters]
   );
+  
   return (
     <Container fluid={true}>
       <Row>

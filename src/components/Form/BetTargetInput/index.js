@@ -11,7 +11,7 @@ const BetTargetInput = ({ onChange, value = "", error: passedError }) => {
   return (
     <Form.Group controlId="forBetTargetyId">
       {error && <Error error={error} />}
-      <Form.Label>Select your bet target</Form.Label>
+      <Form.Label>Bet target</Form.Label>
       <Form.Control
         name="bet_target_id"
         as="select"

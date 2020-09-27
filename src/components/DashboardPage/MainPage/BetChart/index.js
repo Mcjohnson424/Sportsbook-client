@@ -42,7 +42,7 @@ export default function BetChart({ bets = [] }) {
       <Line
         data={{
           labels: groupedByDate.map((g) =>
-            format(parseISO(g[0].date_time), "d MMMM yyyy")
+            format(parseISO(g[0].date_time), "M/d/yyyy")
           ),
           datasets: datasets,
         }}

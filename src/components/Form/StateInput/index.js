@@ -12,7 +12,7 @@ const StateInput = ({ onChange, value = "", error: passedError }) => {
   return (
     <Form.Group controlId="forPlanId">
       {error && <Error error={error} />}
-      <Form.Label>Select your state</Form.Label>
+      <Form.Label>State</Form.Label>
       <Form.Control
         name="state"
         as="select"

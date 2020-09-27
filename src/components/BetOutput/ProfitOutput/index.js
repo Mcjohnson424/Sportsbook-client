@@ -7,7 +7,7 @@ export default function ProfitOutput({ bets = [] }) {
     <Container>
       <Row>
         <Col className="border border-2">
-          <h2>{getProfit(bets).toFixed(2)}$ </h2>
+          <h2>${getProfit(bets).toFixed(2)} </h2>
           <h5>Profit</h5>
         </Col>
       </Row>

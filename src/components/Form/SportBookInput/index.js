@@ -16,7 +16,7 @@ const SportBookInput = ({
   return (
     <Form.Group controlId="forPlanId">
       {error && <Error error={error} />}
-      <Form.Label>Select your sport book</Form.Label>
+      <Form.Label>Sport book</Form.Label>
       <Form.Control
         name="sportsbook_id"
         as="select"

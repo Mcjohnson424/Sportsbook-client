@@ -11,7 +11,7 @@ const StatusInput = ({ onChange, value = "", error: passedError }) => {
   return (
     <Form.Group controlId="forStatusId">
       {error && <Error error={error} />}
-      <Form.Label>Select your status</Form.Label>
+      <Form.Label>Status</Form.Label>
       <Form.Control
         name="status_id"
         as="select"

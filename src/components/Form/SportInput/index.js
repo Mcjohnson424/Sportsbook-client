@@ -11,7 +11,7 @@ const SportInput = ({ onChange, value = "", error: passedError }) => {
   return (
     <Form.Group controlId="forSportId">
       {error && <Error error={error} />}
-      <Form.Label>Select your sport</Form.Label>
+      <Form.Label>Sport</Form.Label>
       <Form.Control
         name="sport_id"
         as="select"
