@@ -18,15 +18,15 @@ function MainPage() {
     api.users.getBets,
     { userId: userInfo.id },
     {
-      ...filters,
+      ...clean(filters),
       startDate: filters.startDate.toISOString(),
       endDate: filters.endDate.toISOString(),
       eager: ["sport", "league"],
     },
-    clean(filters),
+
     [filters]
   );
-  
+
   return (
     <Container fluid={true}>
       <Row>
@@ -34,7 +34,7 @@ function MainPage() {
           <BetFilters />
         </Col>
       </Row>
-      <Row>
+      <Row className="mt-3">
         <Col>
           <BetOutput bets={data} />
         </Col>

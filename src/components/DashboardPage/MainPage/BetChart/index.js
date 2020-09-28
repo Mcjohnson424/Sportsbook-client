@@ -14,9 +14,8 @@ export default function BetChart({ bets = [] }) {
   const groupedByDate = groupByDate(bets);
   const [dimension, setDimension] = useState(dimensions[0]);
   const [metric, setMetric] = useState(metrics[0]);
+
   const datasets = getDatasets(groupedByDate, metric, dimension);
-  console.log(datasets);
-  console.log(groupedByDate);
   return (
     <>
       <Container>

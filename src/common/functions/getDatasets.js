@@ -12,12 +12,16 @@ export default function (bets, metric, dimension) {
     });
     return dimensions.map((d) => {
       const color = getRandomColor();
+      const data = bets.map((group) =>
+        metric.parse(group.filter((bet) => bet[dimension.key] === d))
+      );
+      const b = bets.map((group) =>
+        group.filter((bet) => bet[dimension.key] === d)
+      )[0];
       return {
-        label: d,
+        label: b[0][dimension.name_key],
         borderColor: color,
-        data: bets.map((group) =>
-          metric.parse(group.filter((bet) => bet[dimension.key] === d))
-        ),
+        data: data,
       };
     });
   } else {
