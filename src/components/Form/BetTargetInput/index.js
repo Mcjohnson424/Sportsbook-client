@@ -23,18 +23,18 @@ const BetTargetInput = ({ onChange, value = "", error: passedError }) => {
     <Form.Group controlId="forStatusId">
       {error && <Error error={error} />}
       <Form.Label>
-        Bet target{" "}
+        Bet Target{" "}
         <OverlayTrigger
           key={"right"}
           placement={"right"}
-          overlay={<Tooltip id={`tooltip-right`}>Tooltip.</Tooltip>}
+          overlay={<Tooltip id={`tooltip-right`}>What was bet on: Team, Over/Under, Yes/No, etc.</Tooltip>}
         >
           <i className="fas fa-info-circle"></i>
         </OverlayTrigger>
       </Form.Label>
       <Select
         options={options}
-        value={options.find((o) => o.value === value)}
+        value={options.find((o) => o.value === value) || null}
         onChange={handleChange}
         isClearable={true}
       />

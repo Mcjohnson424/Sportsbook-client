@@ -6,7 +6,7 @@ import api from "../../../common/api";
 import Error from "../../Error";
 import useFetchApi from "../../../hooks/useFetchApi";
 
-const StatusInput = ({ onChange, value = "", error: passedError }) => {
+const StatusInput = ({ onChange, value, error: passedError }) => {
   const { data, loading, error } = useFetchApi(api.statuses.get);
   if (loading) return <Loading />;
   const options =
@@ -27,14 +27,14 @@ const StatusInput = ({ onChange, value = "", error: passedError }) => {
         <OverlayTrigger
           key={"right"}
           placement={"right"}
-          overlay={<Tooltip id={`tooltip-right`}>Tooltip.</Tooltip>}
+          overlay={<Tooltip id={`tooltip-right`}>Status of the bet: Open or Closed.</Tooltip>}
         >
           <i className="fas fa-info-circle"></i>
         </OverlayTrigger>
       </Form.Label>
       <Select
         options={options}
-        value={options.find((o) => o.value === value)}
+        value={options.find((o) => o.value === value) || null}
         onChange={handleChange}
         isClearable={true}
       />

@@ -26,14 +26,14 @@ const SportInput = ({ onChange, value = "", error: passedError }) => {
         <OverlayTrigger
           key={"right"}
           placement={"right"}
-          overlay={<Tooltip id={`tooltip-right`}>Tooltip.</Tooltip>}
+          overlay={<Tooltip id={`tooltip-right`}>Football, Basketball, etc.</Tooltip>}
         >
           <i className="fas fa-info-circle"></i>
         </OverlayTrigger>
       </Form.Label>
       <Select
         options={options}
-        value={options.find((o) => o.value === value)}
+        value={options.find((o) => o.value === value) || null}
         onChange={handleChange}
         isClearable={true}
       />

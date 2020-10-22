@@ -7,7 +7,7 @@ import data from "../contants/dimensions";
 const DimensionInput = ({ onChange, value = "", error: passedError }) => {
   return (
     <Form.Group controlId="forPlanId">
-      <Form.Label>Dimension</Form.Label>
+      <Form.Label>Line By</Form.Label>
       <Form.Control
         name="dimension"
         as="select"
@@ -15,7 +15,7 @@ const DimensionInput = ({ onChange, value = "", error: passedError }) => {
         onChange={onChange}
         isInvalid={!!passedError}
       >
-        <option>Choose...</option>
+        <option>None</option>
         {data.map((item) => (
           <option key={item.key} value={item.key}>
             {item.title}

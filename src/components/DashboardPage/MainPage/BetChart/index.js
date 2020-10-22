@@ -9,20 +9,42 @@ import groupByDate from "../../../../common/functions/groupByDate";
 import MetricInput from "./MetricInput";
 import DimensionInput from "./DimensionInput";
 import getDatasets from "../../../../common/functions/getDatasets";
+import useBetFilteres from "../../../../hooks/useBetFilters";
 
 export default function BetChart({ bets = [] }) {
   const groupedByDate = groupByDate(bets);
-  const [dimension, setDimension] = useState(dimensions[0]);
+  const [dimension, setDimension] = useState(null);
   const [metric, setMetric] = useState(metrics[0]);
-
-  const datasets = getDatasets(groupedByDate, metric, dimension);
+  const {
+    statuses,
+    betTypes,
+    betCategories,
+    sports,
+    betTargets,
+    leagues,
+    sportbooks,
+  } = useBetFilteres();
+  const datasets = metric
+    ? getDatasets(
+        groupedByDate,
+        metric,
+        dimension,
+        statuses,
+        betTypes,
+        betCategories,
+        sports,
+        betTargets,
+        leagues,
+        sportbooks
+      )
+    : [[]];
   return (
     <>
       <Container>
         <Row>
           <Col>
             <MetricInput
-              value={metric.key}
+              value={metric ? metric.key : ""}
               onChange={(e) => {
                 setMetric(metrics.find((m) => m.key === e.target.value));
               }}
@@ -30,7 +52,7 @@ export default function BetChart({ bets = [] }) {
           </Col>
           <Col>
             <DimensionInput
-              value={dimension.key}
+              value={dimension ? dimension.key : ""}
               onChange={(e) => {
                 setDimension(dimensions.find((d) => d.key === e.target.value));
               }}
@@ -38,14 +60,21 @@ export default function BetChart({ bets = [] }) {
           </Col>
         </Row>
       </Container>
-      <Line
-        data={{
-          labels: groupedByDate.map((g) =>
-            format(parseISO(g[0].date_time), "M/d/yyyy")
-          ),
-          datasets: datasets,
-        }}
-      />
+      <div style={{ height: "60vh" }}>
+        {" "}
+        <Line
+          options={{
+            legend: {
+              display: dimension,
+            },
+            maintainAspectRatio: false,
+          }}
+          data={{
+            labels: groupedByDate.dates.map((g) => format(g, "M/d/yyyy")),
+            datasets: datasets,
+          }}
+        />
+      </div>
     </>
   );
 }

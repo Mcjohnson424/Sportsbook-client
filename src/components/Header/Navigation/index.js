@@ -19,12 +19,12 @@ const Navigation = (props) => {
               Dashboard
             </Link>
           </div>{" "}
-          <div className="top-bar-item top-bar-item-left">
+          <div className="top-bar-item ml-3">
             <Link
               className="top-bar-item-link link-text"
-              to={ROUTES.DASHBOARD.as()}
+              to={ROUTES.DASHBOARD_BETLOG.as()}
             >
-              Support
+              Bet Log
             </Link>
           </div>{" "}
           <AccountDropdown />

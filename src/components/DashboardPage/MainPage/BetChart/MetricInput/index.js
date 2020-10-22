@@ -15,7 +15,7 @@ const MetricInput = ({ onChange, value = "", error: passedError }) => {
         onChange={onChange}
         isInvalid={!!passedError}
       >
-        <option>Choose...</option>
+        <option>None</option>
         {data.map((item) => (
           <option key={item.key} value={item.key}>
             {item.title}

@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { Modal } from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 import { Dropdown, DropdownToggle, DropdownMenu } from "reactstrap";
 import format from "date-fns/format";
 import { DateRangePicker } from "react-date-range";
-import "react-date-range/dist/styles.css"; // main style file
-import "react-date-range/dist/theme/default.css";
+import { enGB } from "react-date-range/dist/locale";
 import useEventFilteres from "../../../hooks/useBetFilters"; // theme css file
+
+import staticRangesGenerator from "./staticRanges";
+
+const staticRanges = staticRangesGenerator(enGB);
 
 const DateTimeRangeDropdown = () => {
   const { filters, setFilters } = useEventFilteres();
@@ -21,25 +24,20 @@ const DateTimeRangeDropdown = () => {
     setDropdown(!dropdownOpen);
   };
   return (
-    <Dropdown
-      isOpen={dropdownOpen}
-      toggle={toggleDropdown}
-      className="app-search d-none d-lg-block"
-    >
-      <DropdownToggle
-        data-toggle="dropdown"
-        tag="button"
-        className="dropdown-toggle btn btn-link"
-        onClick={toggleDropdown}
-        aria-expanded={dropdownOpen}
-      >
+    <>
+      <p className="mb-1">Bet Date</p>
+      <Button onClick={toggleDropdown}>
+        {" "}
         {`${format(filters.startDate, "d MMM")} - ${format(
           filters.endDate,
           "d MMM"
         )}`}
-      </DropdownToggle>
-      <DropdownMenu className="dropdown-menu-animated">
+      </Button>
+
+      {dropdownOpen && (
         <DateRangePicker
+          weekStartsOn={1}
+          className="picker"
           ranges={[
             {
               startDate: filters.startDate,
@@ -48,9 +46,10 @@ const DateTimeRangeDropdown = () => {
             },
           ]}
           onChange={handleSelect}
+          staticRanges={staticRanges}
         />
-      </DropdownMenu>
-    </Dropdown>
+      )}
+    </>
   );
 };
 

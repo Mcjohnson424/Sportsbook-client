@@ -1,14 +1,15 @@
 import React, { useStatus, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import getWinPercent from "../../../common/functions/getWinPercent";
+import getProfit from "../../../common/functions/getProfit";
 
-export default function ROIOutput({ bets = [] }) {
+export default function BetsOutput({ bets = [] }) {
+  const value = bets.length;
   return (
     <Container>
       <Row>
         <Col className="border border-2 text-center">
-          <h2>{(getWinPercent(bets) * 100).toFixed(1)}% </h2>
-          <h5>Win %</h5>
+          <h2> {value}</h2>
+          <h5>Bets</h5>
         </Col>
       </Row>
     </Container>

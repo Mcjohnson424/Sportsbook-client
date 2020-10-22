@@ -1,3 +1,12 @@
-
+@import "../node_modules/react-date-range/dist/styles.css"; // main style file
+@import "../node_modules/react-date-range/dist/theme/default.css";
 @import "styles/theme.css";
 @import "styles/custom.css";
+
+.picker {
+  // other overrides
+  @media (max-width: 767px) {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+}

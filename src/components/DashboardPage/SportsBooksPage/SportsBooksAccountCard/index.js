@@ -21,6 +21,16 @@ const SportsBooksAccountCard = ({ account, reload }) => {
     }
     setLoading(false);
   };
+  const handleGetData = async () => {
+    setLoading(true);
+    try {
+      await api.accounts.getData(account.id);
+      reload();
+    } catch (e) {
+      setError(e);
+    }
+    setLoading(false);
+  };
   if (loading) return <Loading />;
   return (
     <Card>
@@ -32,29 +42,21 @@ const SportsBooksAccountCard = ({ account, reload }) => {
           <p className="text-muted">Sportsbook: {account.sportsbook.name}</p>
         </div>{" "}
       </Card.Body>
-      <Row className="no-glutter align-items-end ml-auto p-4">
-        <Link
-          to={ROUTES.DASHBOARD_SPORTSBOOKS_ACCOUNTS_GETDATA.as({
-            accountId: account.id,
-          })}
-        >
-          <Col>
-            <Button className="btn-default btn-focal">Get data once</Button>{" "}
-          </Col>
-        </Link>
-
+      <Row className="align-items-end p-4">
+        <Col lg={8} md={8} xs={8} sm={8}></Col>
         <Col>
-          <Button className="btn-default btn-focal;" onClick={handleDelete}>
+          <Button onClick={handleGetData} className="m-1">
+            Get data once
+          </Button>
+          <Button className="m-1" onClick={handleDelete}>
             Delete
           </Button>
-        </Col>
-        <Col>
           <Link
             to={ROUTES.DASHBOARD_SPORTSBOOKS_ACCOUNTS_EDIT.as({
               accountId: account.id,
             })}
           >
-            <Button className="btn-default  btn-focal ">Edit</Button>
+            <Button className="m-1">Edit</Button>
           </Link>
         </Col>
       </Row>{" "}

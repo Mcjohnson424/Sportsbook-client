@@ -8,8 +8,8 @@ export default function AccountDropdown() {
   const { userInfo } = useCheckAuth();
   const [showDropdown, setShowDropdown] = useState(false);
   return (
-    <div className="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
-      <div className="dropdown d-none d-md-flex">
+    <div className="top-bar-item top-bar-item-right px-0">
+      <div className="dropdown ">
         <button
           className="btn-account"
           type="button"
@@ -17,13 +17,13 @@ export default function AccountDropdown() {
           aria-haspopup={true}
           aria-expanded={false}
         >
-          <span className="account-summary pr-lg-4 d-none d-lg-block">
+          <span className="account-summary pr-lg-4">
             <span className="account-name">
               {userInfo.first_name} {userInfo.last_name}
             </span>{" "}
           </span>
-          <span className="user-avatar user-avatar-md">
-            <img src="assets/images/avatars/profile.jpg" alt="" />
+          <span className="user-avatar user-avatar-md mb-2">
+            <i className="fas fa-chart-bar"></i>
           </span>{" "}
         </button>
         <div
@@ -44,16 +44,10 @@ export default function AccountDropdown() {
             Sportsbooks
           </Link>
 
-          <Link
-            className="dropdown-item"
-            to={ROUTES.DASHBOARD_BETLOG.as()}
-          >
+          <Link className="dropdown-item" to={ROUTES.DASHBOARD_BETLOG.as()}>
             Bet Log
           </Link>
-          <Link
-            className="dropdown-item"
-            to={ROUTES.DASHBOARD_REPORTING.as()}
-          >
+          <Link className="dropdown-item" to={ROUTES.DASHBOARD_REPORTING.as()}>
             Reporting
           </Link>
           <div className="dropdown-divider"></div>
