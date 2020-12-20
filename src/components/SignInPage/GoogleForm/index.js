@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
+import {NavLink, withRouter} from 'react-router-dom';
 import sessionApi from "../../../common/api/session";
 import * as ROUTES from "../../../constants/routes";
 import { Form, Button, Alert } from "react-bootstrap";
@@ -51,6 +51,12 @@ const SignInGoogleBase = ({ history }) => {
       >
         Sign In With Google
       </Button>
+      <p className="text-center mt-4">
+        Don't have an account?{' '}
+        <NavLink to={ROUTES.SIGN_UP.as()} className="sign-in-link">
+          Create One{' '}
+        </NavLink>
+      </p>
     </>
   );
 };

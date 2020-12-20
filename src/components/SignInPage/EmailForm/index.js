@@ -89,7 +89,7 @@ const SignInFormBase = ({ history }) => {
             id="remember-me"
           />{" "}
           <label className="custom-control-label" htmlFor="remember-me">
-            Keep me sign in
+            Keep me signed in
           </label>
         </div>
       </div>

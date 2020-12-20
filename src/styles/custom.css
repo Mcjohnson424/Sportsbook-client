@@ -18,12 +18,12 @@
 }
 
 .sign-in-link {
-  color: #ff4ab2 !important;
-  text-decoration-color: #ff4ab2 !important;
+  color: #6c53b4 !important;
+  text-decoration-color: #6c53b4 !important;
 }
 .sign-in-link:hover {
   color: #c43989 !important;
-  text-decoration-color: #c43989 !important;
+  text-decoration-color: #6c53b4 !important;
 }
 h1,
 h2,

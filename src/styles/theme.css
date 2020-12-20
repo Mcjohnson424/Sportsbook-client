@@ -24713,8 +24713,8 @@ a.metric:hover,
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100%;
-  background-color: #f6f7f9;
+  min-height: 100vh;
+  background-color: #ece9f9;
 }
 
 .auth-header {
