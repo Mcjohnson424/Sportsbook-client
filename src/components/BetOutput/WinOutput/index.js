@@ -5,12 +5,10 @@ import getWinPercent from "../../../common/functions/getWinPercent";
 export default function ROIOutput({ bets = [] }) {
   return (
     <Container>
-      <Row>
-        <Col className="border border-2 text-center">
+        <Col className="border border-2 text-center stats">
           <h2>{(getWinPercent(bets) * 100).toFixed(1)}% </h2>
           <h5>Win %</h5>
         </Col>
-      </Row>
     </Container>
   );
 }

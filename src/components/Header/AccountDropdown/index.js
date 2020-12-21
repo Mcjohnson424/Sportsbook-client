@@ -22,9 +22,6 @@ export default function AccountDropdown() {
               {userInfo.first_name} {userInfo.last_name}
             </span>{" "}
           </span>
-          <span className="user-avatar user-avatar-md mb-2">
-            <i className="fas fa-chart-bar"></i>
-          </span>{" "}
         </button>
         <div
           onMouseLeave={() => setShowDropdown(false)}

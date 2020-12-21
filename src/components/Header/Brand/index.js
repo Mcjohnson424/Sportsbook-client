@@ -1,9 +1,10 @@
-import React from "react";
+import React from 'react';
+import Logo from '../../Logo';
 
 export default function Brand() {
   return (
-    <div className="top-bar-brand">
-      <img height="19" src="https://www.sportsbookscout.com/wp-content/uploads/2019/01/icons8-binoculars-512.png"></img>
-    </div>
+      <div className="top-bar-brand d-block" style={{width: '75px', paddingTop: '11px'}}>
+        <Logo height="25" color="#c4afff"/>
+      </div>
   );
 }

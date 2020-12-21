@@ -1,33 +1,141 @@
 /* put your own styles to customize and override the theme */
 
 .remove-button {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-  font-size: 18px;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 18px;
 }
 
 .remove-button:hover {
-  color: #9d9d9d;
+    color: #9d9d9d;
 }
+
 .top-bar-item-link {
-  color: #ffffff;
+    color: #ffffff;
 }
+
 .top-bar-item-link:hover {
-  color: #a599c8;
+    color: #a599c8;
 }
 
 .sign-in-link {
-  color: #6c53b4 !important;
-  text-decoration-color: #6c53b4 !important;
+    color: #6c53b4 !important;
+    text-decoration-color: #6c53b4 !important;
 }
+
 .sign-in-link:hover {
-  color: #c43989 !important;
-  text-decoration-color: #6c53b4 !important;
+    color: #c43989 !important;
+    text-decoration-color: #6c53b4 !important;
 }
+
 h1,
 h2,
 h3,
 h4 {
-  color: #251359;
+    color: #251359;
 }
+
+
+a.top-bar-item-link.link-text {
+    font-size: 16px;
+    color: #c4afff;
+}
+
+a.top-bar-item-link.link-text:hover {
+    font-size: 16px;
+    color: #9d8cd1;
+}
+
+.notif {
+    margin: 0 auto !important;
+    color: #251359 !important;
+    border: 1px solid #25135970;
+    border-radius: 5px;
+}
+
+.border.border-2.text-center.col {
+    padding: 12px;
+    margin: 6px;
+    border-radius: 9px;
+}
+
+.container-fluid {
+    padding: 0 15vw;
+}
+
+.stats {
+    height: 125px;
+}
+
+.stats * {
+    font-size: 16px;
+}
+
+.stats.highlight-stat {
+    background-color: #e2deff;
+}
+
+.stats-container {
+    padding: 0;
+    display: flex;
+}
+
+.stats-container .stats-row {
+    margin: 0 auto;
+    display: inline-block;
+}
+
+.stats-container .container {
+    width: 125px;
+    margin: 0 5px;
+    padding: 0;
+    display: inline-block;
+}
+
+.stats-container .container .border {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+@media (max-width: 320px) {
+
+    /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+}
+
+@media (max-width: 480px) {
+    /* smartphones, Android phones, landscape iPhone */
+}
+
+@media (max-width: 600px) {
+    /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+}
+
+@media (max-width: 940px) {
+    .stats {
+        height: 64px;
+    }
+
+    .stats-container .container {
+        width: 64px;
+    }
+
+    .stats * {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 801px) {
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+
+@media (max-width: 1025px) {
+    /* big landscape tablets, laptops, and desktops */
+}
+
+@media (max-width: 1281px) {
+    /* hi-res laptops and desktops */
+}
+
