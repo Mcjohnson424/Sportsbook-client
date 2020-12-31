@@ -33,7 +33,7 @@ function MainPage() {
     {
       status: "open",
       limit: 5,
-      eager: ["event"],
+      eager: ["event","sport", "league"],
     },
 
     []

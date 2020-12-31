@@ -1,5 +1,6 @@
 {
   "name": "web-bet-aggregator-client",
+  "homepage": "https://www.sportsbookscout.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

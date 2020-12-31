@@ -25,13 +25,13 @@ export default function BetTable({ bets = [] }) {
       <tbody>
         {bets.map((bet) => (
           <tr>
-            <td>{format(parseISO(bet.date_time), "dd/MM/yyyy")}</td>
+            <td>{format(parseISO(bet.date_time), "M/d/yyyy")}</td>
             <td>{get(bet, "event.event_name")}</td>
             <td>
               {get(bet, "event.event_date_time")
                 ? format(
                     parseISO(get(bet, "event.event_date_time")),
-                    "d/M/yyyy"
+                    "M/d/yyyy"
                   )
                 : null}
             </td>
@@ -39,8 +39,8 @@ export default function BetTable({ bets = [] }) {
             <td>{bet.bet_amount}</td>
             <td>{bet.odds_american}</td>
             <td>{bet.potential_payout}</td>
-            <td>{bet.league_name}</td>
-            <td>{bet.sport_name}</td>
+            <td>{get(bet, "league.league_name")}</td>
+            <td>{get(bet, "sport.sport_name")}</td>
             <td>{bet.bet_type_name}</td>
             <td>{bet.bet_category_name}</td>
           </tr>
