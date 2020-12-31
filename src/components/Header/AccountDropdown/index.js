@@ -25,6 +25,7 @@ export default function AccountDropdown() {
         </button>
         <div
           onMouseLeave={() => setShowDropdown(false)}
+          onClick={() => setShowDropdown(!showDropdown)}
           className={`dropdown-menu ${showDropdown ? "show" : ""}`}
         >
           <div className="dropdown-arrow d-lg-none" x-arrow=""></div>
@@ -39,13 +40,6 @@ export default function AccountDropdown() {
             to={ROUTES.DASHBOARD_SPORTSBOOKS.as()}
           >
             Sportsbooks
-          </Link>
-
-          <Link className="dropdown-item" to={ROUTES.DASHBOARD_BETLOG.as()}>
-            Bet Log
-          </Link>
-          <Link className="dropdown-item" to={ROUTES.DASHBOARD_REPORTING.as()}>
-            Reporting
           </Link>
           <div className="dropdown-divider"></div>
           <LogOutButton />

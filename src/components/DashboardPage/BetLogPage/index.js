@@ -16,6 +16,7 @@ function BetLogPage() {
     { userId: userInfo.id },
     {
       ...filters,
+      eager: ["result", "league", "sport", "event", "sportsbook"],
       startDate: filters.startDate.toISOString(),
       endDate: filters.endDate.toISOString(),
     },

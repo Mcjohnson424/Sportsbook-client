@@ -60,7 +60,7 @@ export default function BetChart({ bets = [] }) {
           </Col>
         </Row>
       </Container>
-      <div style={{ height: "60vh" }}>
+      <div style={{ height: "40vh" }}>
         {" "}
         <Line
           options={{
