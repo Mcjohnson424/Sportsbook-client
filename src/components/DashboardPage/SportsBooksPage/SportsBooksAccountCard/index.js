@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Card, Row, Col, Button, Alert } from "react-bootstrap";
-import format from 'date-fns/format'
-import parseISO from 'date-fns/parseISO'
+import format from "date-fns/format";
+import parseISO from "date-fns/parseISO";
 import Loading from "../../../Loading";
 import api from "../../../../common/api";
 import * as ROUTES from "../../../../constants/routes";
@@ -30,21 +30,27 @@ const SportsBooksAccountCard = ({ account, reload }) => {
     setSuccess(false);
     setLoading(true);
     try {
-      const {data}=await api.accounts.getData(account.id);
+      const { data } = await api.accounts.getData(account.id);
       await api.sportsbooks.updateById(account.sportsbook.id);
-      console.log(data)
       reload();
     } catch (e) {
       setCodeModal(true);
-      setError(e);
     }
     setLoading(false);
-    setSuccess(true)
+    setSuccess(true);
   };
-  if (loading) return <><p className='text-center'>Retrieving data</p><Loading /></>;
+  if (loading)
+    return (
+      <>
+        <p className="text-center">Retrieving data</p>
+        <Loading />
+      </>
+    );
   return (
     <>
-      {success&&<Alert variant='success'>Data was fetched successfully!</Alert>}
+      {success && (
+        <Alert variant="success">Data was fetched successfully!</Alert>
+      )}
       {codeModal && (
         <CodeModal show={codeModal} handleClose={() => setCodeModal(false)} />
       )}
@@ -55,18 +61,34 @@ const SportsBooksAccountCard = ({ account, reload }) => {
             <h4 className="font-weight-bold">{account.username}</h4>
             <p className="text-muted">State: {account.state}</p>
             <p className="text-muted">Sportsbook: {account.sportsbook.name}</p>
-            <p className="text-muted">Last Updated: {format(parseISO(account.sportsbook.lastUpdated),'dd/MM/yyyy hh:mm')}</p>
+            <p className="text-muted">
+              Last Updated:{" "}
+              {format(
+                parseISO(account.sportsbook.lastUpdated),
+                "dd/MM/yyyy hh:mm"
+              )}
+            </p>
           </div>{" "}
         </Card.Body>
         <Row className="align-items-end p-4">
-          <Col lg={8} md={8} xs={8} sm={8}></Col>
+          <Col lg={8} md={6} xs={0} sm={0}></Col>
           <Col>
-            <Button onClick={handleGetData} className="m-1" disabled={account.sportsbook.name==='Fanduel'}>
+            <Button
+              onClick={handleGetData}
+              className="m-1"
+              disabled={account.sportsbook.name === "Fanduel"}
+            >
               Get data
             </Button>
+          </Col>
+          <Col>
+            {" "}
             <Button className="m-1" onClick={handleDelete}>
               Delete
             </Button>
+          </Col>
+          <Col>
+            {" "}
             <Link
               to={ROUTES.DASHBOARD_SPORTSBOOKS_ACCOUNTS_EDIT.as({
                 accountId: account.id,
