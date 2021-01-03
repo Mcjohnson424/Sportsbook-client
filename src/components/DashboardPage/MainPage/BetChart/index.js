@@ -14,7 +14,7 @@ import useBetFilteres from "../../../../hooks/useBetFilters";
 export default function BetChart({ bets = [] }) {
   const groupedByDate = groupByDate(bets);
   const [dimension, setDimension] = useState(null);
-  const [metric, setMetric] = useState(metrics[0]);
+  const [metric, setMetric] = useState(metrics[6]);
   const {
     statuses,
     betTypes,

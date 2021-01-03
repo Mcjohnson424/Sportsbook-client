@@ -8,8 +8,8 @@ export default function AccountDropdown() {
   const { userInfo } = useCheckAuth();
   const [showDropdown, setShowDropdown] = useState(false);
   return (
-    <div className="top-bar-item top-bar-item-right px-0">
-      <div className="dropdown ">
+    <div className="top-bar-item top-bar-item-right px-5">
+      <div className="dropdown">
         <button
           className="btn-account"
           type="button"

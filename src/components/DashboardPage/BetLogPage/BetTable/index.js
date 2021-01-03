@@ -10,15 +10,14 @@ export default function BetTable({ bets = [] }) {
     <Table striped bordered hover responsive>
       <thead>
         <tr>
-          <th>Bet date</th>
-          <th>Bet amount</th>
-          <th>Bet target</th>
+          <th>Bet Date</th>
+          <th>Bet Amount</th>
+          <th>Bet Target</th>
           <th>Bet Type</th>
           <th>Handicap</th>
-          <th>American odds</th>
+          <th>American Odds</th>
           <th>Result</th>
           <th>Profit</th>
-          <th>Payout</th>
           <th>Event</th>
           <th>Event Date</th>
           <th>League </th>
@@ -32,7 +31,7 @@ export default function BetTable({ bets = [] }) {
         {bets.map((bet) => (
           <tr>
             <td>{format(parseISO(bet.date_time), "M/d/yyyy")}</td>
-            <td>${bet.bet_amount}</td>
+            <td>${bet.bet_amount.toFixed(2)}</td>
             <td>{bet.target_name}</td>
             <td>{bet.bet_type_name}</td>
             <td>
@@ -44,8 +43,7 @@ export default function BetTable({ bets = [] }) {
               {bet.odds_american}
             </td>
             <td>{get(bet, "result.result_name")}</td>
-            <td>{bet.payout - bet.bet_amount > 0 && "+"}{bet.payout - bet.bet_amount}</td>
-            <td>{bet.payout}</td>
+            <td>{bet.payout - bet.bet_amount > 0 && "+"}{(bet.payout - bet.bet_amount).toFixed(2)}</td>
             <td>{get(bet, "event.event_name")}</td>
             <td>
               {get(bet, "event.event_date_time")

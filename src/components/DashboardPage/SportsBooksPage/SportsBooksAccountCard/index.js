@@ -58,14 +58,14 @@ const SportsBooksAccountCard = ({ account, reload }) => {
         <Card.Body className="p-4">
           {error && <Error error={error} />}
           <div className="m-auto">
-            <h4 className="font-weight-bold">{account.username}</h4>
+            <h4 className="font-weight-bold">{account.sportsbook.name}</h4>
             <p className="text-muted">State: {account.state}</p>
-            <p className="text-muted">Sportsbook: {account.sportsbook.name}</p>
+            <p className="text-muted">Username: {account.username}</p>
             <p className="text-muted">
               Last Updated:{" "}
               {format(
                 parseISO(account.sportsbook.lastUpdated),
-                "dd/MM/yyyy hh:mm"
+                "MM/dd/yyyy hh:mm"
               )}
             </p>
           </div>{" "}

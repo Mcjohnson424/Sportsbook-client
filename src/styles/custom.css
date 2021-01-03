@@ -33,24 +33,24 @@ h1,
 h2,
 h3,
 h4 {
-    color: #251359;
+    color: #1a0060;
 }
 
 
 a.top-bar-item-link.link-text {
     font-size: 16px;
-    color: #c4afff;
+    color: #afc0ff;
 }
 
 a.top-bar-item-link.link-text:hover {
     font-size: 16px;
-    color: #9d8cd1;
+    color: #afc0ff;
 }
 
 .notif {
     margin: 0 auto !important;
-    color: #251359 !important;
-    border: 1px solid #25135970;
+    color: #1a0060 !important;
+    border: 1px solid #1a006070;
     border-radius: 5px;
 }
 
@@ -59,10 +59,12 @@ a.top-bar-item-link.link-text:hover {
     margin: 6px;
     border-radius: 9px;
 }
-
-.container-fluid {
-    padding: 0 15vw;
+@media screen and (min-width: 900px) {
+    .container-fluid {
+        padding: 0 15vw;
+    }
 }
+
 
 .stats {
     height: 125px;
