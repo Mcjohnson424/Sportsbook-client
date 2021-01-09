@@ -33,7 +33,7 @@ h1,
 h2,
 h3,
 h4 {
-    color: #1a0060;
+    color: #001860;
 }
 
 
@@ -49,8 +49,8 @@ a.top-bar-item-link.link-text:hover {
 
 .notif {
     margin: 0 auto !important;
-    color: #1a0060 !important;
-    border: 1px solid #1a006070;
+    color: #001860 !important;
+    border: 1px solid #00186070;
     border-radius: 5px;
 }
 

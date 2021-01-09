@@ -5,7 +5,7 @@ import parseISO from "date-fns/parseISO";
 import get from "lodash/get";
 
 export default function BetTable({ bets = [] }) {
-  console.log(bets)
+  console.log(bets);
   return (
     <Table striped bordered hover responsive>
       <thead>
@@ -33,9 +33,9 @@ export default function BetTable({ bets = [] }) {
             <td>{format(parseISO(bet.date_time), "M/d/yyyy")}</td>
             <td>${bet.bet_amount.toFixed(2)}</td>
             <td>{bet.target_name}</td>
-            <td>{bet.bet_type_name}</td>
+            <td>{get(bet, "bet_type.bet_type_name")}</td>
             <td>
-              {bet.handicap ==='Spread' && "+"}
+              {get(bet, "bet_type.bet_type_name") === "Spread" && "+"}
               {bet.handicap}
             </td>
             <td>
@@ -43,16 +43,23 @@ export default function BetTable({ bets = [] }) {
               {bet.odds_american}
             </td>
             <td>{get(bet, "result.result_name")}</td>
-            <td>{bet.payout - bet.bet_amount > 0 && "+"}{(bet.payout - bet.bet_amount).toFixed(2)}</td>
+            <td>
+              {bet.payout - bet.bet_amount > 0 && "+"}
+              {bet.payout - bet.bet_amount < 0 && "-"}$
+              {Math.abs(bet.payout - bet.bet_amount).toFixed(2)}
+            </td>
             <td>{get(bet, "event.event_name")}</td>
             <td>
               {get(bet, "event.event_date_time")
-                ? format(parseISO(get(bet, "event.event_date_time")), "M/d/yyyy")
+                ? format(
+                    parseISO(get(bet, "event.event_date_time")),
+                    "M/d/yyyy"
+                  )
                 : ""}
             </td>
             <td>{get(bet, "league.league_name")}</td>
             <td>{get(bet, "sport.sport_name")}</td>
-            <td>{bet.bet_category_name}</td>
+            <td>{get(bet, "bet_category.bet_category_name")}</td>
             <td>{get(bet, "sportsbook.name")}</td>
           </tr>
         ))}

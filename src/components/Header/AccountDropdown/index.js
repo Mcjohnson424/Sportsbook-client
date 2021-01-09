@@ -17,9 +17,10 @@ export default function AccountDropdown() {
           aria-haspopup={true}
           aria-expanded={false}
         >
-          <span className="account-summary pr-lg-4">
+          <span className="account-summary pr-lg-1 text-center">
             <span className="account-name">
-              {userInfo.first_name} {userInfo.last_name}
+              {userInfo.first_name ? userInfo.first_name[0] : ""}{" "}
+              {userInfo.last_name ? userInfo.last_name[0] : ""}
             </span>{" "}
           </span>
         </button>

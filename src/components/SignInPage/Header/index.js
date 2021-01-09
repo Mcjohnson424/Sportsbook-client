@@ -10,7 +10,7 @@ export default function Header() {
           className="auth-header"
           style={{backgroundImage: 'url(assets/images/Background_Dark.svg)'}}
       >
-        <Logo className="mb-5" color="#c4afff" height="140"/>
+        <Logo className="mb-5" color="#afc0ff" height="140"/>
       </header>
   );
 }

@@ -31,12 +31,18 @@ const SportsBooksAccountCard = ({ account, reload }) => {
     setLoading(true);
     try {
       const { data } = await api.accounts.getData(account.id);
-      await api.sportsbooks.updateById(account.sportsbook.id);
+      await api.sportsbooks.updateById(
+        { sportbookId: account.sportsbook.id },
+        account.sportsbook
+      );
       reload();
+      setLoading(false);
     } catch (e) {
+      console.log(e);
       setCodeModal(true);
+      setLoading(false);
+      return;
     }
-    setLoading(false);
     setSuccess(true);
   };
   if (loading)
@@ -63,19 +69,21 @@ const SportsBooksAccountCard = ({ account, reload }) => {
             <p className="text-muted">Username: {account.username}</p>
             <p className="text-muted">
               Last Updated:{" "}
-              {format(
-                parseISO(account.sportsbook.lastUpdated),
-                "MM/dd/yyyy hh:mm"
-              )}
+              {account.sportsbook.lastUpdated
+                ? format(
+                    parseISO(account.sportsbook.lastUpdated),
+                    "MM/dd/yyyy h:mm a z"
+                  )
+                : "N/A"}
             </p>
           </div>{" "}
         </Card.Body>
         <Row className="align-items-end p-4">
-          <Col lg={8} md={6} xs={0} sm={0}></Col>
+          <Col lg={5} md={0} xs={0} sm={0}></Col>
           <Col>
             <Button
+              className="btn-block bth-focal"
               onClick={handleGetData}
-              className="m-1"
               disabled={account.sportsbook.name === "Fanduel"}
             >
               Get data
@@ -83,7 +91,7 @@ const SportsBooksAccountCard = ({ account, reload }) => {
           </Col>
           <Col>
             {" "}
-            <Button className="m-1" onClick={handleDelete}>
+            <Button className="btn-block bth-focal" onClick={handleDelete}>
               Delete
             </Button>
           </Col>
@@ -94,7 +102,7 @@ const SportsBooksAccountCard = ({ account, reload }) => {
                 accountId: account.id,
               })}
             >
-              <Button className="m-1">Edit</Button>
+              <Button className="btn-block bth-focal">Edit</Button>
             </Link>
           </Col>
         </Row>{" "}
