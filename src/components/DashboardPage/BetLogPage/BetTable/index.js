@@ -35,7 +35,7 @@ export default function BetTable({ bets = [] }) {
             <td>{bet.target_name}</td>
             <td>{get(bet, "bet_type.bet_type_name")}</td>
             <td>
-              {get(bet, "bet_type.bet_type_name") === "Spread" && "+"}
+              {get(bet, "bet_type.bet_type_name") === "Spread" &&bet.handicap>0 && "+"}
               {bet.handicap}
             </td>
             <td>

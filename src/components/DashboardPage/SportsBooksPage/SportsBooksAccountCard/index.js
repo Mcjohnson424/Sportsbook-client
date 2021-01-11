@@ -35,7 +35,7 @@ const SportsBooksAccountCard = ({ account, reload }) => {
         { sportbookId: account.sportsbook.id },
         account.sportsbook
       );
-      reload();
+      //reload();
       setLoading(false);
     } catch (e) {
       console.log(e);
