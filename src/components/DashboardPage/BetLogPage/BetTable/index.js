@@ -35,7 +35,9 @@ export default function BetTable({ bets = [] }) {
             <td>{bet.target_name}</td>
             <td>{get(bet, "bet_type.bet_type_name")}</td>
             <td>
-              {get(bet, "bet_type.bet_type_name") === "Spread" &&bet.handicap>0 && "+"}
+              {get(bet, "bet_type.bet_type_name") === "Spread" &&
+                bet.handicap > 0 &&
+                "+"}
               {bet.handicap}
             </td>
             <td>
@@ -44,9 +46,15 @@ export default function BetTable({ bets = [] }) {
             </td>
             <td>{get(bet, "result.result_name")}</td>
             <td>
-              {bet.payout - bet.bet_amount > 0 && "+"}
-              {bet.payout - bet.bet_amount < 0 && "-"}$
-              {Math.abs(bet.payout - bet.bet_amount).toFixed(2)}
+              {get(bet, "result.result_name") &&
+                bet.payout - bet.bet_amount > 0 &&
+                "+"}
+              {get(bet, "result.result_name") &&
+                bet.payout - bet.bet_amount < 0 &&
+                "-"}
+              $
+              {get(bet, "result.result_name") &&
+                Math.abs(bet.payout - bet.bet_amount).toFixed(2)}
             </td>
             <td>{get(bet, "event.event_name")}</td>
             <td>
