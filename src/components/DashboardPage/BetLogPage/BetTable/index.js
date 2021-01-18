@@ -52,7 +52,8 @@ export default function BetTable({ bets = [] }) {
               {get(bet, "result.result_name") &&
                 bet.payout - bet.bet_amount < 0 &&
                 "-"}
-              $
+              {get(bet, "result.result_name") && "$"}
+
               {get(bet, "result.result_name") &&
                 Math.abs(bet.payout - bet.bet_amount).toFixed(2)}
             </td>

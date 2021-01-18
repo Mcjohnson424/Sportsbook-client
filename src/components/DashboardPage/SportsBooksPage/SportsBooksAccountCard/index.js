@@ -30,7 +30,7 @@ const SportsBooksAccountCard = ({ account, reload }) => {
     setSuccess(false);
     setLoading(true);
     try {
-      const { data } = await api.accounts.getData(account.id);
+      const { data } = await api.accounts.getData(account.id,account.sportsbook);
       await api.sportsbooks.updateById(
         { sportbookId: account.sportsbook.id },
         account.sportsbook
